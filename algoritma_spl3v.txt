@@ -1,0 +1,48 @@
+ALGORITMA PENYELESAIAN SISTEM PERSAMAAN LINEAR 3 VARIABEL (SPL 3V)
+METODE: ELIMINASI GAUSS-JORDAN
+
+Bentuk Umum Sistem Persamaan Linear 3 Variabel:
+  a1*x + b1*y + c1*z = d1
+  a2*x + b2*y + c2*z = d2
+  a3*x + b3*y + c3*z = d3
+
+Langkah-Langkah Algoritma:
+
+Langkah 1: Pembentukan Matriks Teraugmentasi (Augmented Matrix)
+  - Susun koefisien variabel (x, y, z) dan konstanta (d) ke dalam matriks A|B berukuran 3x4:
+    [ a1  b1  c1 | d1 ]
+    [ a2  b2  c2 | d2 ]
+    [ a3  b3  c3 | d3 ]
+
+Langkah 2: Pemeriksaan Solusi (Determinan)
+  - Hitung determinan matriks utama A.
+  - Jika determinan A = 0, maka sistem tidak memiliki solusi unik (solusi banyak atau tidak ada solusi).
+  - Jika determinan A != 0, lanjutkan ke proses Eliminasi Gauss-Jordan.
+
+Langkah 3: Eliminasi Gauss-Jordan (Mengubah Matriks Menjadi Matriks Identitas)
+  3.1 Buat elemen utama kolom 1 (Baris 1, Kolom 1) menjadi 1:
+      - R1 = R1 / a1
+  3.2 Nol-kan elemen di bawah elemen utama kolom 1:
+      - R2 = R2 - (a2 * R1)
+      - R3 = R3 - (a3 * R1)
+  
+  3.3 Buat elemen utama kolom 2 (Baris 2, Kolom 2) menjadi 1:
+      - R2 = R2 / (elemen R2, K2)
+  3.4 Nol-kan elemen lain pada kolom 2 (di atas dan di bawah):
+      - R1 = R1 - (elemen R1, K2 * R2)
+      - R3 = R3 - (elemen R3, K2 * R2)
+
+  3.5 Buat elemen utama kolom 3 (Baris 3, Kolom 3) menjadi 1:
+      - R3 = R3 / (elemen R3, K3)
+  3.6 Nol-kan elemen di atas elemen utama kolom 3:
+      - R1 = R1 - (elemen R1, K3 * R3)
+      - R2 = R2 - (elemen R2, K3 * R3)
+
+Langkah 4: Penarikan Kesimpulan Hasil (Ekstraksi Solusi)
+  - Matriks akhir akan berbentuk:
+    [ 1  0  0 | x ]
+    [ 0  1  0 | y ]
+    [ 0  0  1 | z ]
+  - Nilai pada kolom terakhir langsung merupakan solusi nilai x, y, dan z.
+
+======================================================================
